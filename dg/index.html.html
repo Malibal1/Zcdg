@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İyi ki Doğdun Zehra!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Genel Stil */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+    }
+
+    /* Ay */
+    .moon {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+      width: 120px;
+      height: 120px;
+      background: #f5f3ce;
+      border-radius: 50%;
+      box-shadow: 0 0 40px 15px #f5f3ce;
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 30px 10px #f5f3ce; }
+      50% { box-shadow: 0 0 60px 25px #fff8b0; }
+    }
+
+    .stars {
+      width: 2px;
+      height: 2px;
+      background: white;
+      position: absolute;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 20px;
+    }
+
+    header h1 { font-size: 48px; }
+    header p { font-size: 18px; color: #ccc; }
+
+    .content, .music-player, .surprise, .message-board {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 { font-size: 32px; margin-bottom: 20px; }
+
+    audio {
+      width: 80%;
+      max-width: 400px;
+      margin: 20px 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 30px;
+      box-shadow: 0 0 10px #ffffff33;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #f5f3ce;
+      color: #1b2735;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    #surpriseMessage {
+      display: none;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #fff8b0;
+    }
+
+    /* Mesaj Defteri */
+    .message-board form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .message-board input, .message-board textarea {
+      padding: 10px;
+      width: 100%;
+      max-width: 400px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .messages {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .message {
+      background: rgba(255,255,255,0.1);
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+    }
+
+    footer {
+      text-align: center;
+      margin: 50px 0;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ay -->
+  <div class="moon"></div>
+
+  <!-- Yıldızlar -->
+  <script>
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'stars';
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <!-- Başlık -->
+  <header>
+    <h1>İyi ki Doğdun <b>Arkadaşım!</b>🎂</h1>
+    <p>Bu gece de yıldızlar senin için parlasın...</p>
+  </header>
+
+  <!-- Müzik -->
+
+  <!-- İçerik -->
+  <section class="content">
+    <h2>Mutlu Yıllar Zehra!</h2>
+    <p>Yeni yaşın umarım sana güzellikler, başarılar ve sağlık getirip sonu güzel bitecek yollara çıkmaya vesile olur.
+    Umarım o yollarda da çok keyif alıp huzurlu olursun. Her yılın bir öncekinden daha güzel geçsin!</p>
+
+    <div class="card">
+      <p>"Senin gibi kalbi güzel bir insan bu dünyaya bir hediye olmuş. Şanslıyım ki iyiki... 
+      Bugün senin günün. Gülümsemeyi asla bırakma!"</p>
+    </div>
+  </section>
+
+  <!-- Sürpriz Buton -->
+  <section class="surprise">
+    <h2>🎁 Sürpriz Kutlama Mesajı</h2>
+    <button class="btn" onclick="showSurprise()">Tıkla ve Mesajı Gör 🎉</button>
+    <div id="surpriseMessage">🎈 Zehra, sen bu dünyada yıldızların yanına çok yakışıyorsun.  
+      Doğum günün kutlu olsun, seni çok seviyoruz! 💖</div>
+  </section>
+
+  <!-- Mesaj Defteri -->
+  <section class="message-board">
+    <h2>📬 Zehra'ya Mesaj Bırak</h2>
+    <form id="messageForm">
+      <input type="text" id="name" placeholder="Adınız" required>
+      <textarea id="message" placeholder="Mesajınız" rows="3" required></textarea>
+      <button type="submit" class="btn">Mesajı Gönder</button>
+    </form>
+
+    <div class="messages" id="messages"></div>
+  </section>
+
+  <footer>
+    © 2025 Zehra'nın Doğum Günü | Sevgiyle Hazırlandı 🌙
+  </footer>
+
+  <script>
+    function showSurprise() {
+      document.getElementById("surpriseMessage").style.display = "block";
+    }
+
+    // Mesaj Defteri
+    const form = document.getElementById("messageForm");
+    const messagesDiv = document.getElementById("messages");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const message = document.getElementById("message").value;
+
+      const messageEl = document.createElement("div");
+      messageEl.className = "message";
+      messageEl.innerHTML = `<strong>${name}:</strong> ${message}`;
+      messagesDiv.prepend(messageEl);
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
+<section class="music-player">
+  <h2>🎵 Doğum Günü Şarkısı</h2>
+  <iframe width="360" height="200"
+    src="https://www.youtube.com/embed/g3L9L_8z814?autoplay=0"
+    title="Hirai Zerdüş – Ben Bilmezdim Renkleri"
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+  </iframe>
+</section>

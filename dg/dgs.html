@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İyi ki Doğdun Zehra!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Yıldızlar */
+    .stars {
+      width: 2px;
+      height: 2px;
+      background: white;
+      position: absolute;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    /* Ay */
+    .moon {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+      width: 120px;
+      height: 120px;
+      background: #f5f3ce;
+      border-radius: 50%;
+      box-shadow: 0 0 40px 15px #f5f3ce;
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 30px 10px #f5f3ce; }
+      50% { box-shadow: 0 0 60px 25px #fff8b0; }
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      animation: slideIn 1.5s ease forwards;
+    }
+
+    .content p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ccc;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 0 10px #ffffff33;
+      animation: floatCard 4s infinite ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="moon"></div>
+
+  <!-- Rastgele yıldızlar -->
+  <script>
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'stars';
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <header>
+    <h1>İyi ki Doğdun Zehra! 🎂</h1>
+    <p>Bu özel gecede, yıldızlar bile senin için parlıyor...</p>
+  </header>
+
+  <section class="content">
+    <h2>Mutlu Yıllar!</h2>
+    <p>Sevgili Zehra,  
+      Yeni yaşında sağlık, mutluluk ve başarı seninle olsun.  
+      Geceleri gökyüzüne baktığında, yıldızlar kadar parladığını unutma.  
+      Bu özel günü seninle kutlamak bizim için büyük bir mutluluk!  
+    </p>
+
+    <div class="card">
+      <h2>🎉 Sürpriz Mesaj:</h2>
+      <p>"Senin gibi güzel ruhlar bu dünyaya nadiren gelir.  
+      Her doğan güneş, her doğan ay senin güzelliğini kutluyor."</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Zehra'nın Doğum Günü | Tüm Hakları Saklıdır 🌙
+  </footer>
+</body>
+</html>
